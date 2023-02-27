@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MMCC Project</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.mbutt').mouseenter(function() {
+                $(this).animate({
+                    fontSize: "1.5vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.mbutt').mouseleave(function() {
+                $(this).animate({
+                    fontSize: "1.2vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.minibutt').mouseenter(function() {
+                $(this).animate({
+                    fontSize: "1vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.minibutt').mouseleave(function() {
+                $(this).animate({
+                    fontSize: "0.8vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.minibutt').click(function(i) {
+                i.preventDefault();
+                target = $( $(this).attr('href') ).position().top;
+                $('html,body').stop().animate({ scrollTop: target }, { duration: 480});
+            });
+
+            //remove sheen class from all the buttons
+            function resetsheen() {
+                $('#mb1').removeClass("sheen");
+                $('#mb2').removeClass("sheen");
+                $('#mb3').removeClass("sheen");
+                $('#mb4').removeClass("sheen");
+                $('#mb5').removeClass("sheen");
+            }
+
+            //scroll caret
+            $(window).on('scroll', function() {
+                if(window.pageYOffset >= $('#d5').position().top-200) {
+                    resetsheen();
+                    $("#mb5").addClass("sheen");
+                    $("#bprogress").text("Procrastinate");
+                }
+                else if(window.pageYOffset >= $('#d4').position().top-200) {
+                    resetsheen();
+                    $("#mb4").addClass("sheen");
+                    $("#bprogress").text("Progress?");
+                }
+                else if(window.pageYOffset >= $('#d3').position().top-200) {
+                    resetsheen();
+                    $("#mb3").addClass("sheen");
+                    $("#bprogress").text("Progress");
+                }
+                else if(window.pageYOffset >= $('#d2').position().top-200) {
+                    resetsheen();
+                    $("#mb2").addClass("sheen");
+                    $("#bprogress").text("Progress");
+                }
+                else{
+                    resetsheen();
+                    $("#mb1").addClass("sheen");
+                    $("#bprogress").text("Progress");
+                }
+            });
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    </style>
+</head>
+<body>
+    <div id="main" class="clearfix">
+        <div id="content">
+            <section class="page" id="d1">
+                <h1>2 Weeks Left</h1>
+                <img src="images/pic1.png" alt="word image">
+                <br>
+                <p>There's still 2 entire weeks left! ^^ If you started your project now, you could complete it at a lesiurely pace.
+                    But there are so many other hobbies you could be working on, is it really a good idea to waste 2 entire weeks on a single assignment?
+                </p>
+                <p>At your peak typing speed (100wpm), you'd be able to complete about 400-500 assignments in that time.</p>
+            </section>
+            <section class="page" id="d2">
+                <h1>A Week's Left</h1>
+                <img src="images/pic2.png" alt="word image 2">
+                <br>
+                <p>A week is still a generous amount of time for an assignment. You think back to a certain hour in 2020 where you wrote (200) words.
+                    If you can match that pace, you should be able to complete an assignment within a day, easily.
+                </p>
+                <p>However, you realise that maybe it's making a start on, and open up MS Word/VS Code.</p>
+            </section>
+            <section class="page" id="d3">
+                <h1>3 Days...</h1>
+                <img src="images/pic3.png" alt="3 days left">
+                <br>
+                <p>Not that there's any particular reason to worry, but there's 3 days left to complete your assignment. 
+                    Good thing you made some progress last time (18 words).
+                </p>
+                <p>Unfortunately, due to time constraints, you won't have time to work on your hobbies if you work on your assignment for these next 3 days... is it worth it?</p>
+            </section>
+            <section class="page" id="d4">
+                <h1>DUE DATE</h1>
+                <img src="images/pic4.png" alt="due date graphic">
+                <br>
+                <p>You didn't get much sleep yesterday so you made 0 progress, but there's still hope - as long as you can keep up a decent speed of 80wpm,
+                    you'll be able to write up 2000 words by the end of today.
+                </p>
+            </section>
+            <section class="page" id="d5">
+                <h1>Late.</h1>
+                <img src="images/pic5.png" alt="7 days late graphic">
+                <br>
+                <p>Last day of possible submission.</p>
+                <p>You wrote 1000 words on the due date, but didn't touch the project since...
+                    BUT since you wrote 1000 words on the due date, that means you're capable of finishing today!</p>
+                <p>However that probably means you should probably go work on it instead of writing up a [<i>text ends here</i>]</p>
+            </section>
+        </div>
+        <nav>
+            <div id="logobox">
+                <a href="index.html">
+                    <img src="images/aetaxvw.png" alt="logo" id="logoimage">
+                </a>
+            </div>
+            <a href="schedule.html" class="mbutt" id="bschedule">Schedule</a>
+            <br>
+            <div id="menu1">
+                <a href="timeline.html" class="mbutt" id="bprogress">Progress</a><a class="buttcaret sheen">&nbsp;‹</a>
+                <div id="miniholder">
+                    <a href="#d1" class="minibutt sheen" id="mb1">14 Days Left</a><br>
+                    <a href="#d2" class="minibutt" id="mb2">7 Days Left</a><br>
+                    <a href="#d3" class="minibutt" id="mb3">3 Days Left</a><br>
+                    <a href="#d4" class="minibutt" id="mb4">0 Days Left</a><br>
+                    <a href="#d5" class="minibutt" id="mb5">7 Days Late</a>
+                </div>
+            </div>
+            <a href="procrastinate.html" class="mbutt" id="bprocrastinate">Procrastinate</a>
+        </nav>
+    </div>
+</body>
+</html>

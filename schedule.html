@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MMCC Project</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //Hide the subtext
+            $('#miniholder').hide();
+
+            //Hide the WORD content
+            $('#text2').hide();
+            $('#text3').hide();
+            $('#text4').hide();
+            $('#d1').hide();
+            $('#d2').hide();
+
+            //Show submenu when hover
+            $('#menu1').mouseenter(function() {
+                $('#miniholder').slideDown(77);
+            });
+            //Hide when stop hovering
+            $('#menu1').mouseleave(function() {
+                $('#miniholder').slideUp(77);
+            });
+            $('.mbutt').mouseenter(function() {
+                $(this).animate({
+                    fontSize: "1.5vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.mbutt').mouseleave(function() {
+                $(this).animate({
+                    fontSize: "1.2vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.minibutt').mouseenter(function() {
+                $(this).animate({
+                    fontSize: "1vw"
+                }, {
+                    duration: 80
+                });
+            });
+            $('.minibutt').mouseleave(function() {
+                $(this).animate({
+                    fontSize: "0.8vw"
+                }, {
+                    duration: 80
+                });
+            });
+
+            //Hidesall
+            function resetall() {
+                $('#s1').removeClass("pressthis");
+                $('#s2').removeClass("pressthis");
+                $('#s3').removeClass("pressthis");
+                $('#s4').removeClass("pressthis");
+                $('#s5').removeClass("pressthis");
+                $('#text1').hide();
+                $('#text2').hide();
+                $('#text3').hide();
+                $('#text4').hide();
+                $('#d1').hide();
+                $('#d2').hide();
+            }
+
+            //Buttons mechanism
+            $('#s1').click(function() {
+                resetall();
+                $('#s1').addClass("pressthis");
+                $('#text1').show();
+            });
+            $('#s2').click(function() {
+                resetall();
+                $('#s2').addClass("pressthis");
+                $('#text1').show();
+                $('#text2').show();
+            });
+            $('#s3').click(function() {
+                resetall();
+                $('#s3').addClass("pressthis");
+                $('#text1').show();
+                $('#text2').show();
+                $('#text3').show();
+            });
+            $('#s4').click(function() {
+                resetall();
+                $('#s4').addClass("pressthis");
+                $('#text1').show();
+                $('#text2').show();
+                $('#text3').show();
+                $('#text4').show();
+            });
+            $('#s5').click(function() {
+                resetall();
+                $('#s5').addClass("pressthis");
+                $('#d1').show();
+                $('#d2').show();
+            });
+            //and glow when hovered over
+            $('.clickable').mouseenter(function() {
+                $(this).addClass("pressthishover");
+            });
+            $('.clickable').mouseleave(function() {
+                $(this).removeClass("pressthishover");
+            });
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    </style>
+</head>
+<body>
+    <div id="main" class="clearfix">
+        <div id="content">
+            <section class="page" id="cpup">
+                <h1>A Plan You Need</h1>
+                <div id="imagecontainer">
+                    <img src="images/d2.png" alt="cpu" style="position:absolute" id="d2">
+                    <img src="images/d1.png" alt="cpu" style="position:absolute" id="d1" class="blink">
+                    <img src="images/t1.png" alt="cpu" style="position:absolute" id="text1">
+                    <img src="images/t2.png" alt="cpu" style="position:absolute" id="text2">
+                    <img src="images/t3.png" alt="cpu" style="position:absolute" id="text3">
+                    <img src="images/t4.png" alt="cpu" style="position:absolute" id="text4">
+                    <img src="images/b1.png" alt="cpu" id="word1">
+                </div>
+                <br>
+                <div id="buttoncontainer">
+                <div id="s1" class="pressthis clickable">Day 1-2</div>
+                <div id=s2 class=clickable>Day 7</div>
+                <div id=s3 class=clickable>Day 14</div>
+                <div id=s4 class=clickable>Day 15</div>
+                <div id=s5 class=clickable>Due Date</div>
+                </div>
+                <br>
+                <p>Everyone says that you need a plan for your assignments.
+                    Just dedicate a period of time to your assignment, say 2 weeks. 
+                    Then divide your assignment into simple steps, and follow it for those 14 days!
+                </p>
+                <p>
+                    Seems simple enough, following these steps should be as easy as clicking through this timeline ^^
+                </p>
+            </section>
+        </div>
+        <nav>
+            <div id="logobox">
+                <a href="index.html">
+                    <img src="images/aetaxvw.png" alt="logo" id="logoimage">
+                </a>
+            </div>
+            <a href="schedule.html" class="mbutt">Schedule&nbsp;</a><a class="buttcaret sheen">‹</a>
+            <br>
+            <div id="menu1">
+                <a href="timeline.html" class="mbutt">Progress</a>
+                <div id="miniholder">
+                    <a href="timeline.html#d1" class="minibutt">14 Days Left</a><br>
+                    <a href="timeline.html#d2" class="minibutt">7 Days Left</a><br>
+                    <a href="timeline.html#d3" class="minibutt">3 Days Left</a><br>
+                    <a href="timeline.html#d4" class="minibutt">0 Days Left</a><br>
+                    <a href="timeline.html#d5" class="minibutt">7 Days Late</a>
+                </div>
+            </div>
+            <a href="procrastinate.html" class="mbutt">Procrastinate</a>
+        </nav>
+    </div>
+</body>
+</html>
